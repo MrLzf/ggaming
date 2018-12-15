@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ggaming.mapper.AccountInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.ggaming.domain.AccountInfo" >
+    <id column="accountno" property="accountno" jdbcType="VARCHAR" />
+    <result column="ApiCode" property="apicode" jdbcType="VARCHAR" />
+    <result column="accountname" property="accountname" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="initpwd" property="initpwd" jdbcType="VARCHAR" />
+    <result column="acc_status" property="accStatus" jdbcType="CHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="testflag" property="testflag" jdbcType="CHAR" />
+    <result column="sessiondId" property="sessiondId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    accountno, ApiCode, accountname, pwd, initpwd, acc_status, createTime, testflag,sessiondId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ACCOUNT_INFO
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ACCOUNT_INFO
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ggaming.domain.AccountInfo" >
+    insert into ACCOUNT_INFO (accountno, ApiCode, accountname, 
+      pwd, initpwd, acc_status, 
+      createTime, testflag,sessiondId)
+    values (#{accountno,jdbcType=VARCHAR}, #{apicode,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{initpwd,jdbcType=VARCHAR}, #{accStatus,jdbcType=CHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{testflag,jdbcType=CHAR}, #{sessiondId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ggaming.domain.AccountInfo" >
+    insert into ACCOUNT_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountno != null" >
+        accountno,
+      </if>
+      <if test="apicode != null" >
+        ApiCode,
+      </if>
+      <if test="accountname != null" >
+        accountname,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+      <if test="initpwd != null" >
+        initpwd,
+      </if>
+      <if test="accStatus != null" >
+        acc_status,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="testflag != null" >
+        testflag,
+      </if>
+      <if test="sessiondId != null" >
+        sessiondId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountno != null" >
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="apicode != null" >
+        #{apicode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="initpwd != null" >
+        #{initpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="accStatus != null" >
+        #{accStatus,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testflag != null" >
+        #{testflag,jdbcType=CHAR},
+      </if>
+      <if test="sessiondId != null" >
+        #{sessiondId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ggaming.domain.AccountInfo" >
+    update ACCOUNT_INFO
+    <set >
+      <if test="apicode != null" >
+        ApiCode = #{apicode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        accountname = #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="initpwd != null" >
+        initpwd = #{initpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="accStatus != null" >
+        acc_status = #{accStatus,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testflag != null" >
+        testflag = #{testflag,jdbcType=CHAR},
+      </if>
+      <if test="sessiondId != null" >
+        sessiondId = #{sessiondId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ggaming.domain.AccountInfo" >
+    update ACCOUNT_INFO
+    set ApiCode = #{apicode,jdbcType=VARCHAR},
+      accountname = #{accountname,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      initpwd = #{initpwd,jdbcType=VARCHAR},
+      acc_status = #{accStatus,jdbcType=CHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      testflag = #{testflag,jdbcType=CHAR},
+      sessiondId = #{sessiondId,jdbcType=VARCHAR}
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </update>
+  <select id="accountAndPwdSelect" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ACCOUNT_INFO
+    where accountno = #{accountid,jdbcType=VARCHAR}
+     and pwd = #{password,jdbcType=VARCHAR}
+  </select>
+  <select id="accountAndinitPwdSelect" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ACCOUNT_INFO
+    where accountno = #{0}
+     and initpwd = #{1}  
+  </select>
+</mapper>

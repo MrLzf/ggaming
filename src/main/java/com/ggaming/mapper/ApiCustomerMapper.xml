@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ggaming.mapper.ApiCustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.ggaming.domain.ApiCustomer" >
+    <id column="ApiCode" property="apicode" jdbcType="VARCHAR" />
+    <result column="ApiName" property="apiname" jdbcType="VARCHAR" />
+    <result column="ApiContact" property="apicontact" jdbcType="VARCHAR" />
+    <result column="ApiUrl" property="apiurl" jdbcType="VARCHAR" />
+    <result column="ApiIP" property="apiip" jdbcType="VARCHAR" />
+    <result column="ApiStatus" property="apistatus" jdbcType="CHAR" />
+    <result column="ApiUpdate" property="apiupdate" jdbcType="VARCHAR" />
+    <result column="ApiTime" property="apitime" jdbcType="TIMESTAMP" />
+    <result column="MD5Key" property="md5key" jdbcType="VARCHAR" />
+    <result column="DESKey" property="deskey" jdbcType="VARCHAR" />
+    <result column="Backup1" property="backup1" jdbcType="VARCHAR" />
+    <result column="Backup2" property="backup2" jdbcType="VARCHAR" />
+    <result column="Backup3" property="backup3" jdbcType="VARCHAR" />
+    <result column="CompanyId" property="companyid" jdbcType="CHAR" />
+    <result column="Password" property="password" jdbcType="VARCHAR" />
+    <result column="singlestatus" property="singlestatus" jdbcType="CHAR" />
+    <result column="isNewPy" property="isNewPy" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ApiCode, ApiName, ApiContact, ApiUrl, ApiIP, ApiStatus, ApiUpdate, ApiTime, MD5Key, 
+    DESKey, Backup1, Backup2, Backup3, CompanyId, Password, singlestatus,isNewPy
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ApiCustomer
+    where ApiCode = #{apicode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ApiCustomer
+    where ApiCode = #{apicode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ggaming.domain.ApiCustomer" >
+    insert into ApiCustomer (ApiCode, ApiName, ApiContact, 
+      ApiUrl, ApiIP, ApiStatus, 
+      ApiUpdate, ApiTime, MD5Key, 
+      DESKey, Backup1, Backup2, 
+      Backup3, CompanyId, Password, 
+      singlestatus)
+    values (#{apicode,jdbcType=VARCHAR}, #{apiname,jdbcType=VARCHAR}, #{apicontact,jdbcType=VARCHAR}, 
+      #{apiurl,jdbcType=VARCHAR}, #{apiip,jdbcType=VARCHAR}, #{apistatus,jdbcType=CHAR}, 
+      #{apiupdate,jdbcType=VARCHAR}, #{apitime,jdbcType=TIMESTAMP}, #{md5key,jdbcType=VARCHAR}, 
+      #{deskey,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{companyid,jdbcType=CHAR}, #{password,jdbcType=VARCHAR}, 
+      #{singlestatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ggaming.domain.ApiCustomer" >
+    insert into ApiCustomer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="apicode != null" >
+        ApiCode,
+      </if>
+      <if test="apiname != null" >
+        ApiName,
+      </if>
+      <if test="apicontact != null" >
+        ApiContact,
+      </if>
+      <if test="apiurl != null" >
+        ApiUrl,
+      </if>
+      <if test="apiip != null" >
+        ApiIP,
+      </if>
+      <if test="apistatus != null" >
+        ApiStatus,
+      </if>
+      <if test="apiupdate != null" >
+        ApiUpdate,
+      </if>
+      <if test="apitime != null" >
+        ApiTime,
+      </if>
+      <if test="md5key != null" >
+        MD5Key,
+      </if>
+      <if test="deskey != null" >
+        DESKey,
+      </if>
+      <if test="backup1 != null" >
+        Backup1,
+      </if>
+      <if test="backup2 != null" >
+        Backup2,
+      </if>
+      <if test="backup3 != null" >
+        Backup3,
+      </if>
+      <if test="companyid != null" >
+        CompanyId,
+      </if>
+      <if test="password != null" >
+        Password,
+      </if>
+      <if test="singlestatus != null" >
+        singlestatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="apicode != null" >
+        #{apicode,jdbcType=VARCHAR},
+      </if>
+      <if test="apiname != null" >
+        #{apiname,jdbcType=VARCHAR},
+      </if>
+      <if test="apicontact != null" >
+        #{apicontact,jdbcType=VARCHAR},
+      </if>
+      <if test="apiurl != null" >
+        #{apiurl,jdbcType=VARCHAR},
+      </if>
+      <if test="apiip != null" >
+        #{apiip,jdbcType=VARCHAR},
+      </if>
+      <if test="apistatus != null" >
+        #{apistatus,jdbcType=CHAR},
+      </if>
+      <if test="apiupdate != null" >
+        #{apiupdate,jdbcType=VARCHAR},
+      </if>
+      <if test="apitime != null" >
+        #{apitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="md5key != null" >
+        #{md5key,jdbcType=VARCHAR},
+      </if>
+      <if test="deskey != null" >
+        #{deskey,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null" >
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null" >
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null" >
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        #{companyid,jdbcType=CHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="singlestatus != null" >
+        #{singlestatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ggaming.domain.ApiCustomer" >
+    update ApiCustomer
+    <set >
+      <if test="apiname != null" >
+        ApiName = #{apiname,jdbcType=VARCHAR},
+      </if>
+      <if test="apicontact != null" >
+        ApiContact = #{apicontact,jdbcType=VARCHAR},
+      </if>
+      <if test="apiurl != null" >
+        ApiUrl = #{apiurl,jdbcType=VARCHAR},
+      </if>
+      <if test="apiip != null" >
+        ApiIP = #{apiip,jdbcType=VARCHAR},
+      </if>
+      <if test="apistatus != null" >
+        ApiStatus = #{apistatus,jdbcType=CHAR},
+      </if>
+      <if test="apiupdate != null" >
+        ApiUpdate = #{apiupdate,jdbcType=VARCHAR},
+      </if>
+      <if test="apitime != null" >
+        ApiTime = #{apitime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="md5key != null" >
+        MD5Key = #{md5key,jdbcType=VARCHAR},
+      </if>
+      <if test="deskey != null" >
+        DESKey = #{deskey,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null" >
+        Backup1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null" >
+        Backup2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null" >
+        Backup3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null" >
+        CompanyId = #{companyid,jdbcType=CHAR},
+      </if>
+      <if test="password != null" >
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="singlestatus != null" >
+        singlestatus = #{singlestatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where ApiCode = #{apicode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ggaming.domain.ApiCustomer" >
+    update ApiCustomer
+    set ApiName = #{apiname,jdbcType=VARCHAR},
+      ApiContact = #{apicontact,jdbcType=VARCHAR},
+      ApiUrl = #{apiurl,jdbcType=VARCHAR},
+      ApiIP = #{apiip,jdbcType=VARCHAR},
+      ApiStatus = #{apistatus,jdbcType=CHAR},
+      ApiUpdate = #{apiupdate,jdbcType=VARCHAR},
+      ApiTime = #{apitime,jdbcType=TIMESTAMP},
+      MD5Key = #{md5key,jdbcType=VARCHAR},
+      DESKey = #{deskey,jdbcType=VARCHAR},
+      Backup1 = #{backup1,jdbcType=VARCHAR},
+      Backup2 = #{backup2,jdbcType=VARCHAR},
+      Backup3 = #{backup3,jdbcType=VARCHAR},
+      CompanyId = #{companyid,jdbcType=CHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      singlestatus = #{singlestatus,jdbcType=CHAR}
+    where ApiCode = #{apicode,jdbcType=VARCHAR}
+  </update>
+  <select id="apicodeByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ApiCustomer
+    where ApiCode = #{apicode,jdbcType=VARCHAR}
+     and singlestatus='1'
+  </select>
+  <select id="compayIdByList" parameterType="java.lang.String" >
+    select 
+    	*
+    from ApiCustomer
+    where CompanyId = #{compayId,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

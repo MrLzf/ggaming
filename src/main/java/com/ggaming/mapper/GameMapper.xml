@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ggaming.mapper.GameMapper" >
+  <resultMap id="BaseResultMap" type="com.ggaming.domain.Game" >
+    <id column="gameid" property="gameid" jdbcType="VARCHAR" />
+    <result column="name_zh" property="nameZh" jdbcType="VARCHAR" />
+    <result column="name_en" property="nameEn" jdbcType="VARCHAR" />
+    <result column="logo_zh" property="logoZh" jdbcType="VARCHAR" />
+    <result column="logo_en" property="logoEn" jdbcType="VARCHAR" />
+    <result column="image_zh" property="imageZh" jdbcType="VARCHAR" />
+    <result column="image_en" property="imageEn" jdbcType="VARCHAR" />
+    <result column="lang" property="lang" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="createby" property="createby" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateby" property="updateby" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="priority" property="priority" jdbcType="TINYINT" />
+    <result column="bak1" property="bak1" jdbcType="INTEGER" />
+    <result column="bak2" property="bak2" jdbcType="INTEGER" />
+    <result column="bak3" property="bak3" jdbcType="VARCHAR" />
+    <result column="bak4" property="bak4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gameid, name_zh, name_en, logo_zh, logo_en, image_zh, image_en, lang, type, status, 
+    description, createby, createtime, updateby, updatetime, priority, bak1, bak2, bak3, 
+    bak4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Game
+    where gameid = #{gameid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Game
+    where gameid = #{gameid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ggaming.domain.Game" >
+    insert into Game (gameid, name_zh, name_en, 
+      logo_zh, logo_en, image_zh, 
+      image_en, lang, type, status, 
+      description, createby, createtime, 
+      updateby, updatetime, priority, 
+      bak1, bak2, bak3, bak4
+      )
+    values (#{gameid,jdbcType=VARCHAR}, #{nameZh,jdbcType=VARCHAR}, #{nameEn,jdbcType=VARCHAR}, 
+      #{logoZh,jdbcType=VARCHAR}, #{logoEn,jdbcType=VARCHAR}, #{imageZh,jdbcType=VARCHAR}, 
+      #{imageEn,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{status,jdbcType=CHAR}, 
+      #{description,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updateby,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{priority,jdbcType=TINYINT}, 
+      #{bak1,jdbcType=INTEGER}, #{bak2,jdbcType=INTEGER}, #{bak3,jdbcType=VARCHAR}, #{bak4,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ggaming.domain.Game" >
+    insert into Game
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gameid != null" >
+        gameid,
+      </if>
+      <if test="nameZh != null" >
+        name_zh,
+      </if>
+      <if test="nameEn != null" >
+        name_en,
+      </if>
+      <if test="logoZh != null" >
+        logo_zh,
+      </if>
+      <if test="logoEn != null" >
+        logo_en,
+      </if>
+      <if test="imageZh != null" >
+        image_zh,
+      </if>
+      <if test="imageEn != null" >
+        image_en,
+      </if>
+      <if test="lang != null" >
+        lang,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="createby != null" >
+        createby,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updateby != null" >
+        updateby,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="priority != null" >
+        priority,
+      </if>
+      <if test="bak1 != null" >
+        bak1,
+      </if>
+      <if test="bak2 != null" >
+        bak2,
+      </if>
+      <if test="bak3 != null" >
+        bak3,
+      </if>
+      <if test="bak4 != null" >
+        bak4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gameid != null" >
+        #{gameid,jdbcType=VARCHAR},
+      </if>
+      <if test="nameZh != null" >
+        #{nameZh,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null" >
+        #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="logoZh != null" >
+        #{logoZh,jdbcType=VARCHAR},
+      </if>
+      <if test="logoEn != null" >
+        #{logoEn,jdbcType=VARCHAR},
+      </if>
+      <if test="imageZh != null" >
+        #{imageZh,jdbcType=VARCHAR},
+      </if>
+      <if test="imageEn != null" >
+        #{imageEn,jdbcType=VARCHAR},
+      </if>
+      <if test="lang != null" >
+        #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createby != null" >
+        #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        #{updateby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="priority != null" >
+        #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="bak1 != null" >
+        #{bak1,jdbcType=INTEGER},
+      </if>
+      <if test="bak2 != null" >
+        #{bak2,jdbcType=INTEGER},
+      </if>
+      <if test="bak3 != null" >
+        #{bak3,jdbcType=VARCHAR},
+      </if>
+      <if test="bak4 != null" >
+        #{bak4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ggaming.domain.Game" >
+    update Game
+    <set >
+      <if test="nameZh != null" >
+        name_zh = #{nameZh,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null" >
+        name_en = #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="logoZh != null" >
+        logo_zh = #{logoZh,jdbcType=VARCHAR},
+      </if>
+      <if test="logoEn != null" >
+        logo_en = #{logoEn,jdbcType=VARCHAR},
+      </if>
+      <if test="imageZh != null" >
+        image_zh = #{imageZh,jdbcType=VARCHAR},
+      </if>
+      <if test="imageEn != null" >
+        image_en = #{imageEn,jdbcType=VARCHAR},
+      </if>
+      <if test="lang != null" >
+        lang = #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createby != null" >
+        createby = #{createby,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        updateby = #{updateby,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="priority != null" >
+        priority = #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="bak1 != null" >
+        bak1 = #{bak1,jdbcType=INTEGER},
+      </if>
+      <if test="bak2 != null" >
+        bak2 = #{bak2,jdbcType=INTEGER},
+      </if>
+      <if test="bak3 != null" >
+        bak3 = #{bak3,jdbcType=VARCHAR},
+      </if>
+      <if test="bak4 != null" >
+        bak4 = #{bak4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gameid = #{gameid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ggaming.domain.Game" >
+    update Game
+    set name_zh = #{nameZh,jdbcType=VARCHAR},
+      name_en = #{nameEn,jdbcType=VARCHAR},
+      logo_zh = #{logoZh,jdbcType=VARCHAR},
+      logo_en = #{logoEn,jdbcType=VARCHAR},
+      image_zh = #{imageZh,jdbcType=VARCHAR},
+      image_en = #{imageEn,jdbcType=VARCHAR},
+      lang = #{lang,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      createby = #{createby,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updateby = #{updateby,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      priority = #{priority,jdbcType=TINYINT},
+      bak1 = #{bak1,jdbcType=INTEGER},
+      bak2 = #{bak2,jdbcType=INTEGER},
+      bak3 = #{bak3,jdbcType=VARCHAR},
+      bak4 = #{bak4,jdbcType=VARCHAR}
+    where gameid = #{gameid,jdbcType=VARCHAR}
+  </update>
+  <select id="getList" resultMap="BaseResultMap" >
+    select 
+     * 
+    from Game
+    where status = '1' AND name_zh !='大厅' AND gameid !='110'
+  </select>
+  <select id="getGameList" resultMap="BaseResultMap" >
+    select
+     *
+    from Game
+    where status = '1' AND name_zh !='大厅' AND gameid !='110'
+  </select>
+  <select id="typeByList" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+     * 
+    from Game
+    where status = '1' and type=#{type,jdbcType=CHAR}
+  </select>
+
+    <select id="getgameListBybak1" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+     *
+    from Game
+    where status = '1' and bak1=#{bak1,jdbcType=INTEGER}
+  </select>
+
+  <select id="fineByGameId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+     *
+    from Game
+    where status = '1' and gameid=#{gameId,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑"; font-family:Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+a{ text-decoration:none;}
+body{  overflow: hidden;}
+
+#div_first {
+  width: 100%;
+  position: relative;
+}
+
+.theGameTitle {
+  width: 100%;
+  position: absolute;
+  height: 120px;
+  top: 0;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#0079a1), to(#0052c1));   
+background: -webkit-linear-gradient(top, #0079a1, #0052c1);   
+background: -moz-linear-gradient(top, #0079a1, #0052c1);   
+background: -o-linear-gradient(top, #0079a1, #0052c1);   
+background: -ms-linear-gradient(top, #0079a1, #0052c1);   
+background: linear-gradient(top, #0079a1, #0052c1);   
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = #0079a1, endColorstr = #0052c1); 
+   -moz-box-shadow:0px 5px 10px #000;
+    -webkit-box-shadow:0px 5px 10px #000;
+    box-shadow:0px 5px 10px #000;
+
+}
+.Gamebox{ width:1329px; margin-left:auto; margin-right:auto; padding-top:10px;}
+
+.gameLogo {
+  height: 96px;
+  width: 108px;
+  background: url('/img/logo.png') no-repeat;
+   z-index: 5;
+  float:left;
+  
+}
+
+
+.login_box{  height: 50px;
+ 
+  padding-left: 10px;
+  float: left;
+  margin-left:20%;
+    margin-top:25px;}
+
+.user_input{  width: 250px;
+  height: 50px;background-color: #002f59;
+  color: #cac9c9;
+  text-align: left;
+  line-height: 50px; -moz-border-radius: 25px; /* Firefox */
+  -webkit-border-radius: 25px; /* Safari 和 Chrome */
+  border-radius: 25px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */  box-sizing: border-box; border:none; margin-right:20px;    vertical-align: middle; padding-left:10px; font-size:22px; color:#cac9c9;
+
+}
+.login_input{ height: 50px;  line-height: 50px; -moz-border-radius: 25px; /* Firefox */
+  -webkit-border-radius: 25px; /* Safari 和 Chrome */
+  border-radius: 25px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */  box-sizing: border-box; border:none; width:120px;   color: #000; font-size:30px; background:#dee101;    vertical-align: middle;
+
+}
+.titleId {
+  width: 260px;
+  height: 50px;
+   background-color: #002f59;
+  color: #cac9c9;
+  text-align: left;
+  line-height: 50px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  float: left;
+  margin-left:35%;
+    margin-top:25px; font-size:30px;
+
+
+  -moz-border-radius: 25px; /* Firefox */
+  -webkit-border-radius: 25px; /* Safari 和 Chrome */
+  border-radius: 25px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+
+}
+
+.moneyNum {
+  width: 260px;
+  height: 50px;
+   background-color: #002f59;
+  color: #dee101;
+  border-radius: 25px;
+  text-align: left;
+  line-height: 50px;
+  /* box-sizing: border-box; */
+  float:left;
+  margin-top:25px;
+  margin-left:100px;
+  font-size:30px;
+}
+
+.moneyNum>img {
+  width:60px;
+  box-sizing: border-box; left:-10px; position: relative; top:-5px; vertical-align:middle;
+}
+
+.home {
+  width: 100px;
+ float: right;
+ padding-top:15px;
+}
+.home>img {
+  height: 58px;
+  box-sizing: border-box;
+}
+.theGameMain {
+  width: 100%;
+  position: absolute;
+  top:24%;
+     z-index: 5;
+
+}
+.fishGame{ width:343px; height:618px; float: left;}
+.GameList{ padding:0px 10px; width:965px; height:618px; overflow-y:auto;}
+.GameList .list{ width:287px; height:294px; padding:0px 12px 30px 12px; float:left;}
+/*.GameList::-webkit-scrollbar {width:10px;}
+.GameList::-webkit-scrollbar-track {
+background-color:#cef7fd;
+-webkit-border-radius: 2em;
+-moz-border-radius: 2em;
+border-radius:2em;
+}
+.GameList::-webkit-scrollbar-thumb {
+background-color:#202643;
+-webkit-border-radius: 2em;
+-moz-border-radius: 2em;
+border-radius:2em;
+}
+*/
+
+.ghover{width:287px; height:294px;}
+
+.ghover span{display:none; text-decoration:none}
+
+.ghover p{display:none; text-decoration:none}
+
+.ghover:hover span{ display:block;  bottom:0; left:0;color:#dee101;width:287px; z-index:10;height:294px;background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;
+
+    border-radius:15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; line-height:294px; text-align:center; font-size:26px;}
+.ghover:hover span a{ font-size:26px; color:#dee101;}
+
+.ghover:hover p{ display:block;  bottom:0; left:0;width:287px; z-index:10;}

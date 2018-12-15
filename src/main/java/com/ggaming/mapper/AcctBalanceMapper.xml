@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ggaming.mapper.AcctBalanceMapper" >
+  <resultMap id="BaseResultMap" type="com.ggaming.domain.AcctBalance" >
+    <id column="accountno" property="accountno" jdbcType="VARCHAR" />
+    <result column="currencyid" property="currencyid" jdbcType="CHAR" />
+    <result column="banlance" property="banlance" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    accountno, currencyid, banlance
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ACCT_BALANCE
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ACCT_BALANCE
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ggaming.domain.AcctBalance" >
+    insert into ACCT_BALANCE (accountno, currencyid, banlance
+      )
+    values (#{accountno,jdbcType=VARCHAR}, #{currencyid,jdbcType=CHAR}, #{banlance,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ggaming.domain.AcctBalance" >
+    insert into ACCT_BALANCE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountno != null" >
+        accountno,
+      </if>
+      <if test="currencyid != null" >
+        currencyid,
+      </if>
+      <if test="banlance != null" >
+        banlance,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountno != null" >
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="currencyid != null" >
+        #{currencyid,jdbcType=CHAR},
+      </if>
+      <if test="banlance != null" >
+        #{banlance,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ggaming.domain.AcctBalance" >
+    update ACCT_BALANCE
+    <set >
+      <if test="currencyid != null" >
+        currencyid = #{currencyid,jdbcType=CHAR},
+      </if>
+      <if test="banlance != null" >
+        banlance = #{banlance,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ggaming.domain.AcctBalance" >
+    update ACCT_BALANCE
+    set currencyid = #{currencyid,jdbcType=CHAR},
+      banlance = #{banlance,jdbcType=VARCHAR}
+    where accountno = #{accountno,jdbcType=VARCHAR}
+  </update>
+</mapper>
